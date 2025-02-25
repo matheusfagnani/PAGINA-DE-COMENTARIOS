@@ -1,0 +1,25 @@
+body{
+    background-color: grey;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.TITULO{
+    font-display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formulario_cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    background-color: brown;
+
+}
