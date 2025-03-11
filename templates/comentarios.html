@@ -24,8 +24,12 @@
         <input type="campo comentarios " name="comentario">
         <button type="submit">enviar</button>
 
-
-
+            <div class "mensagens">
+                {%for mensagem in mensagens}
+                <strong>{{mensagem.usuario}} ({{mensagem.data_hora}})</strong>
+                <p>{{mensagem.mensagem}}</p>
+            </div>
+           {% endfor %}
     </form>
     
 
