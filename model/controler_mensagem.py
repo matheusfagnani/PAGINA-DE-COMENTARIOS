@@ -11,7 +11,10 @@ class Mensagem :
     cursor = conexao.cursor(dictionary=True)
    # criando o sql
     sql= """INSERT INTO  tb_comentarios (
-        data_hora,nome,comentario) VALUES (%s,%s,%s)"""
+        "cod_comentario"
+        nome,
+        data_hora,
+        comentario,) VALUES (%s,%s,%s)"""
     
     valores=(data_hora,usuario,mensagem)
     
@@ -40,6 +43,26 @@ def recuperar_mensagens():
     conexao.close()
     
     return resultado
+
+
+def deletar_mensagen(codigo):
+    conexao = Conexao.criar_conexao()
+    cursor = conexao.cursor(dictionary=True)
+    
+    sql= """ DELETE from tb_comentarios Where cod_comentario = %s; """
+    valores= (codigo)
+    cursor.execute(sql,valores)
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+
+
+
+
+
+
 
 
 

@@ -23,18 +23,44 @@
         </label>
         <input type="campo comentarios " name="comentario">
         <button type="submit">enviar</button>
+        <button type="like">like👍</button>
+        <button type="like">deslike👎</button>
+        <button type="exluir">excluir</button>
 
-            <div class "mensagens">
-                {%for mensagem in mensagens}
-                <strong>{{mensagem.usuario}} ({{mensagem.data_hora}})</strong>
-                <p>{{mensagem.mensagem}}</p>
-            </div>
-           {% endfor %}
+
+
+    
+
     </form>
-    
+    <table>
+        <thead>
+            <div class "mensagens"></div>
 
 
-    
+        </thead>
+
+        <tbody>
+            {%for mensagem in mensagens}
+
+            <tr>
+                <td>usuario</td>
+            </tr>
+            <tr>
+                <td>comentario</td>
+
+            </tr>
+            <tr>
+                <td>data</td>
+
+            </tr>
+            <tr>
+                <td>ações</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
 </body>
 
 </html>

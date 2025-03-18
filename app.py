@@ -23,6 +23,8 @@ def post_mensagem():
     Mensagem.cadastrar_mensagem(usuario,mensagem)
     return redirect("/")
 
-
-
+@app.route("/delete/mensagem/<codigo>")
+def delete_mensagem(codigo):
+    Mensagem.deletar_mensagen(codigo)
+    return redirect ("/")
 app.run()
