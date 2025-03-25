@@ -14,7 +14,8 @@ class Mensagem :
         "cod_comentario"
         nome,
         data_hora,
-        comentario,) VALUES (%s,%s,%s)"""
+        comentario,
+        curtidas) VALUES (%s,%s,%s)"""
     
     valores=(data_hora,usuario,mensagem)
     
@@ -59,7 +60,48 @@ def deletar_mensagen(codigo):
 
 
 
+def like_mensagem(codigo):
+    conexao = Conexao.criar_conexao()
+    cursor = conexao.cursor(dictionary=True)
+    
+    sql= """ UPDATE tb_comentarios
+            SET curtidas = curtidas + 1
+             WERE cod_comentarios = 56;
+              set sql_safe_updates """
+    valores= (codigo)
+    cursor.execute(sql,valores)
+    conexao.commit()
 
+    cursor.close()
+    conexao.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def deslike_curtida(codigo):
+    conexao = Conexao.criar_conexao()
+    cursor = conexao.cursor(dictionary=True)
+    
+    sql= """ UPDATE tb_comentarios
+            SET curtidas = curtidas -1
+             WERE cod_comentarios = 56;
+              set sql_safe_updates """
+    valores= (codigo)
+    cursor.execute(sql,valores)
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
 
 
 

@@ -6,8 +6,9 @@ app = Flask(__name__)
 
 #rotas do site
 
+@app.route("/cadastro_usuario")
 
-@app.route("/")
+@app.route("/comentario")
 
 def home_page():
     return render_template("comentarios.html")
@@ -21,17 +22,19 @@ def post_mensagem():
     mensagem =request.form.get("comentario")
    #cadastrando a mensagem usando a classe menssagem 
     Mensagem.cadastrar_mensagem(usuario,mensagem)
-    return redirect("/")
+    return redirect("/comentario")
 
 @app.route("/delete/mensagem/<codigo>")
 def delete_mensagem(codigo):
     Mensagem.deletar_mensagen(codigo)
-    return redirect ("/")
+    return redirect ("/comentario")
 
 
 @app.route("/put/mensagem/add/curtida/codigo")
 def add_curtida(codigo):
-    return redirect("/")
+    return redirect("/comentario")
+
+
 
 
 app.run()
