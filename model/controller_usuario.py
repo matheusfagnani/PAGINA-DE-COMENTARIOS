@@ -25,3 +25,23 @@ class usuario :
     #fechando a conexão 
         cursor.close()
         conexao.close()
+
+
+
+def logar(usuario,senha):
+ 
+    senha+sha256(senha.encode().hexdigest())
+    conexao = Conexao.criar_conexao()
+    cursor = conexao.cursor()
+    sql="""  select*from tb_usuario
+    where login = %s 
+    AND binary = "%s;   """
+    valores=(usuario,senha)
+    cursor.execute(sql,valores)
+    resultado= cursor.fetchone
+    conexao.commit()
+#fechando a conexão 
+    cursor.close()
+    conexao.close()
+
+
