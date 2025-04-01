@@ -10,6 +10,12 @@ app = Flask(__name__)
 def pagina_cadastro_usuario():
     return render_template("tela_usuario.html")
 
+
+
+@app.route("/login")
+def pagina_de_login():
+    return render_template("login.html")
+
 @app.route("/post/cadastro_usuario", methods = ["POST"])
 def post_cadastrar_usuario():
     nome= request.form.get("nome")
