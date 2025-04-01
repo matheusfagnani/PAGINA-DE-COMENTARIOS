@@ -1,10 +1,14 @@
 
+from hashlib import sha256
 from data.conexão import Conexao
 
 
 class usuario :
 
     def cadastrar(usuario,senha,nome ):
+        senha+sha256(senha.encode().hexdigest())
+
+
         conexao = Conexao.criar_conexao()
         cursor = conexao.cursor()
    # criando o sql
