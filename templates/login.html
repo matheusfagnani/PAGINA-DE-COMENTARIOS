@@ -1,34 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/login.css">
-    <title>login</title>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .container {
+            background: pink;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid purple;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: 1px solid pink;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+    </style>
 </head>
 
 <body>
-    <form class="login">
-        <h1>login</h1>
-        <label for="campo_usuario">usuario</label>
-        <input type="campo_usuario">
 
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
 
-        <label for="campo_senha">senha</label>
-        <input type="senha">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
 
-
-        <button> entrar</button>
-        <button> cadastrar</button>
-
-
-
-
-
-
-    </form>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
 
 </body>
 

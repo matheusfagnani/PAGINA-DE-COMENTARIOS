@@ -7,6 +7,17 @@ app = Flask(__name__)
 #rotas do site
 
 @app.route("/cadastro_usuario")
+def pagina_cadastro_usuario():
+    return render_template("tela_usuario.html")
+
+@app.route("/post/cadastro_usuario", methods = ["POST"])
+def post_cadastrar_usuario():
+    nome= request.form.get("nome")
+    usuario= request.form.get("usuario")
+    senha= request.form.get("senha")
+
+    usuario.cadastrar(usuario,senha,nome)
+    return redirect("/comentario")
 
 @app.route("/comentario")
 

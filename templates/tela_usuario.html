@@ -1,29 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles_cadastro.css">
-    <title>tela-usuario</title>
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: goldenrod;
+        }
+
+        .container {
+            background: lightblue;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid red;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: 1px solid red;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
 </head>
 
 <body>
-    <form class="cadastro_usuario">
-        <h1> Cadatro usuario</h1>
 
-        <Label> usuario</Label>
-        <input type="campo_usuario+">
+    <div class="container">
+        <h2>Cadastro</h2>
+        <form action="/post/cadastro_usuario" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
 
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
 
-        <label for="senha">senha</label>
-        <input type="campo_senha">
-        <button>cadastrar</button>
-        <button>excluir </button>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
 
+            <button type="submit">Cadastrar</button>
+ 
+        </form>
+    </div>
 
-    </form>
 </body>
 
 </html>
