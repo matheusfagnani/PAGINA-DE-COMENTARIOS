@@ -2,7 +2,9 @@ from flask import Flask,render_template,request,redirect
 import datetime
 from data.conexão import Conexao
 from model.controler_mensagem import Mensagem
+from model.controller_usuario import Usuario
 app = Flask(__name__)
+app.secret_key="periculoso"
 
 #rotas do site
 
@@ -16,6 +18,20 @@ def pagina_cadastro_usuario():
 def pagina_de_login():
     return render_template("login.html")
 
+
+
+
+
+@app.route("/post/logar",methods =["POST"])
+def post_logar():
+    usuario = request.form.get("login")
+    senha=request.form.get("senha")
+    esta_logado= Usuario.logar(usuario,senha)
+    if esta_logado:
+        return("/comentario")
+    else:
+       return redirect("/login")
+
 @app.route("/post/cadastro_usuario", methods = ["POST"])
 def post_cadastrar_usuario():
     nome= request.form.get("nome")
@@ -28,7 +44,11 @@ def post_cadastrar_usuario():
 @app.route("/comentario")
 
 def home_page():
+
     return render_template("comentarios.html")
+
+
+@app.route("/logoff")   
 
 
 

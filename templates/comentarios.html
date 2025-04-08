@@ -13,6 +13,8 @@
 <body>
     <DIV class="TITULO">
         <H1>CADASTRE UM COMENTARIO 😁</H1>
+        <h2>Matser pagina</h2>
+        <h3>Seja bem-vindo {{session["nome_usuario"]}}</h3>
     </DIV>
 
     <form form="formulario_cadastro" action="/post/cadastrar_mensagem" method="post" for="nome"> <label>usuario
@@ -26,6 +28,7 @@
         <button type="like">like👍</button>
         <button type="like">deslike👎</button>
         <button type="exluir">excluir</button>
+        <button type="logoff">logoff</button>
 
 
 
@@ -34,13 +37,13 @@
     </form>
     <table>
         <thead>
-            <div class "mensagens"></div>
+            <div class ="mensagens"></div>
 
 
         </thead>
 
         <tbody>
-            {%for mensagem in mensagens}
+            {% for mensagem in mensagens %}
 
             <tr>
                 <td>usuario</td>

@@ -1,9 +1,11 @@
 
 from hashlib import sha256
+
+from flask import session
 from data.conexão import Conexao
 
 
-class usuario :
+class Usuario :
 
     def cadastrar(usuario,senha,nome ):
         senha+sha256(senha.encode().hexdigest())
@@ -38,10 +40,33 @@ def logar(usuario,senha):
     AND binary = "%s;   """
     valores=(usuario,senha)
     cursor.execute(sql,valores)
-    resultado= cursor.fetchone
-    conexao.commit()
-#fechando a conexão 
+    resultado= cursor.fetchone()
+
+    #fechando a conexão 
     cursor.close()
     conexao.close()
+
+    if resultado: 
+        session['usuario']= resultado['login']
+        session['nome_usuario']= resultado['nome']
+        return True
+    
+    else:
+        return False
+    
+
+
+
+def logoff():
+    session.clear()
+    
+    
+    
+    
+    
+
+
+
+
 
 
