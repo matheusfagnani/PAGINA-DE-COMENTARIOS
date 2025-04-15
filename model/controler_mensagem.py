@@ -79,15 +79,6 @@ def like_mensagem(codigo):
 
 
 
-
-
-
-
-
-
-
-
-
 def deslike_curtida(codigo):
     conexao = Conexao.criar_conexao()
     cursor = conexao.cursor(dictionary=True)
@@ -102,6 +93,7 @@ def deslike_curtida(codigo):
 
     cursor.close()
     conexao.close()
+
 
 
 

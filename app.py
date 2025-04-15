@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,jsonify
 import datetime
 from data.conexão import Conexao
 from model.controler_mensagem import Mensagem
@@ -70,6 +70,17 @@ def delete_mensagem(codigo):
 @app.route("/put/mensagem/add/curtida/codigo")
 def add_curtida(codigo):
     return redirect("/comentario")
+
+@app.route("/api/get/mensagem")
+def api_get_mensagem():
+    #retorna todas as mensagens cadastradas no banco de dados
+    mensagens = Mensagem.recuperar_mensagens()
+    return jsonify(mensagens)
+    
+@app.route("/api/get/Ultimo_comentario/<usuario>")
+def api_get_ultimo_comentario(usuario):
+    return jsonify(Mensagem.ultimo_comentario(usuario))
+
 
 
 
